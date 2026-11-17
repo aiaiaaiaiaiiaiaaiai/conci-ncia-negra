@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consciência Negra no Cinema | Reflexão e Representatividade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0d0d0d;
+            --bg-card: #1a1a1a;
+            --gold: #d4af37;
+            --gold-light: #f0d78c;
+            --red: #c41e3a;
+            --green: #1a7a4c;
+            --text: #f5f5f5;
+            --text-muted: #b0b0b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(135deg, #000000 0%, #1a0a0a 50%, #0a1a0a 100%);
+            padding: 1.5rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23111" width="100" height="100"/><circle fill="%23d4af37" cx="20" cy="30" r="2" opacity="0.3"/><circle fill="%23c41e3a" cx="80" cy="70" r="1.5" opacity="0.4"/><circle fill="%231a7a4c" cx="50" cy="50" r="3" opacity="0.2"/></svg>');
+            background-size: cover;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 5%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), #b8860b);
+            color: #000;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .intro {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #111 100%);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--text-muted);
+        }
+
+        .films {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .film-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            border: 1px solid #2a2a2a;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .film-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+        }
+
+        .film-header {
+            background: linear-gradient(135deg, #1a0a0a, #0a1a0a);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .film-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .film-header .year {
+            color: var(--gold-light);
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .film-content {
+            padding: 2.5rem;
+        }
+
+        .synopsis {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+        }
+
+        .ficha-tecnica {
+            background: #111;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 5px solid var(--gold);
+        }
+
+        .ficha-tecnica h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .ficha-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .ficha-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ficha-item strong {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ficha-item span {
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .awards {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 3rem 5%;
+            border-top: 3px solid var(--gold);
+            color: var(--text-muted);
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .date-highlight {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .film-content {
+                padding: 1.5rem;
+            }
+            .ficha-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Consciência Negra</div>
+            <ul class="nav-links">
+                <li><a href="#intro">Introdução</a></li>
+                <li><a href="#filmes">Filmes</a></li>
+                <li><a href="#corra">Corra!</a></li>
+                <li><a href="#greenbook">Green Book</a></li>
+                <li><a href="#pantera">Pantera Negra</a></li>
+                <li><a href="#chris">Todo Mundo Odeia o Chris</a></li>
+                <li><a href="#estrelas">Estrelas Além do Tempo</a></li>
+                <li><a href="#selma">Selma</a></li>
+                <li><a href="#medida">Medida Provisória</a></li>
+                <li><a href="#marte">Marte Um</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Consciência Negra no Cinema</h1>
+            <p>Celebrando a cultura, a história e a representatividade negra através de obras que marcaram o cinema e nos convidam à reflexão.</p>
+            <a href="#filmes" class="btn">Explorar os Filmes</a>
+        </div>
+    </section>
+
+    <section id="intro" class="intro">
+        <div class="container">
+            <h2 class="section-title">O que é Consciência Negra?</h2>
+            <p class="intro-text">
+                O <strong class="date-highlight">Dia da Consciência Negra</strong>, celebrado em <strong>20 de novembro</strong>, é uma data dedicada à valorização da identidade, cultura e história das pessoas negras.
+                Ela marca a morte de Zumbi dos Palmares, líder do Quilombo dos Palmares, símbolo da resistência contra a escravidão e da luta por liberdade e dignidade.
+            </p>
+            <p class="intro-text">
+                Mais do que uma data comemorativa, é um convite à reflexão sobre o racismo, a desigualdade e a importância da representatividade.
+                O cinema tem sido uma poderosa ferramenta para contar essas histórias, dar voz a narrativas negras e promover empatia e consciência social.
+            </p>
+        </div>
+    </section>
+
+    <section id="filmes">
+        <div class="container">
+            <h2 class="section-title">Filmes para Refletir</h2>
+            <div class="films">
+
+                <!-- Filme 1: Corra! -->
+                <article id="corra" class="film-card">
+                    <div class="film-header">
+                        <h2>Corra! (Get Out)</h2>
+                        <div class="year">2017</div>
+                    </div>
+                    <div class="film-content">
+                        <p class="synopsis">
+                            O longa acompanha um final de semana na vida de Chris (Daniel Kaluuya), um jovem afro-americano que visita a propriedade da família de sua namorada.
+                            A princípio, Chris vê o comportamento exageradamente hospitaleiro da família como uma tentativa desajeitada de lidar com a relação interracial da filha,
+                            mas, no decorrer do final de semana, uma série de descobertas perturbadoras o levam a uma verdade que ele nunca poderia imaginar.
+                        </p>
+                        <div class="ficha-tecnica">
+                            <h3>Ficha Técnica</h3>
+                            <div class="ficha-grid">
+                                <div class="ficha-item">
+                                    <strong>Diretor</strong>
+                                    <span>Jordan Peele</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Elenco</strong>
+                                    <span>Daniel Kaluuya, Allison Williams, Catherine Keener, Bradley Whitford</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>País de origem</strong>
+                                    <span>Estados Unidos da América</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Ano de produção</strong>
+                                    <span>2017</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Classificação</strong>
+                                    <span>14 anos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Filme 2: Green Book -->
+                <article id="greenbook" class="film-card">
+                    <div class="film-header">
+                        <h2>Green Book: O Guia</h2>
+                        <div class="year">2018</div>
+                    </div>
+                    <div class="film-content">
+                        <p class="synopsis">
+                            Green Book: O Guia é um drama baseado em fatos reais que se passa em 1962, durante a segregação racial nos Estados Unidos.
+                            A trama acompanha Tony Lip (interpretado por Viggo Mortensen), um segurança ítalo-americano desempregado, que aceita o emprego de motorista e guarda-costas de Don Shirley (interpretado por Mahershala Ali), um renomado pianista clássico afro-americano.
+                        </p>
+                        <p class="synopsis">
+                            Os dois embarcam em uma turnê de oito semanas pelo Sul profundo dos EUA, região marcada pelo racismo institucionalizado. Para navegar com segurança, eles dependem do The Negro Motorist Green Book (conhecido como "Livro Verde"), um guia turístico que indicava hotéis, restaurantes e postos de gasolina que eram seguros para viajantes negros na época das leis Jim Crow.
+                        </p>
+                        <p class="synopsis">
+                            Ao longo da jornada, inicialmente marcadas por choques culturais e preconceitos mútuos, Tony e Don desenvolvem uma amizade profunda. O filme explora como a convivência forçada e as experiências compartilhadas diante da discriminação transformam ambos, levando Tony a abandonar seus preconceitos e Don a se reconectar com suas raízes e família. A obra venceu o Oscar de Melhor Filme em 2019, além de estatuetas para Melhor Roteiro Original e Melhor Ator Coadjuvante (Mahershala Ali).
+                        </p>
+                        <div class="ficha-tecnica">
+                            <h3>Ficha Técnica</h3>
+                            <div class="ficha-grid">
+                                <div class="ficha-item">
+                                    <strong>Diretor</strong>
+                                    <span>Peter Farrelly</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Elenco</strong>
+                                    <span>Viggo Mortensen, Mahershala Ali, Linda Cardellini</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>País de origem</strong>
+                                    <span>Estados Unidos da América</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Ano de produção</strong>
+                                    <span>2018</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Classificação</strong>
+                                    <span>12 anos</span>
+                                </div>
+                            </div>
+                            <div class="awards">
+                                Vencedor do Oscar de Melhor Filme, Melhor Roteiro Original e Melhor Ator Coadjuvante (Mahershala Ali) em 2019.
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Filme 3: Pantera Negra -->
+                <article id="pantera" class="film-card">
+                    <div class="film-header">
+                        <h2>Pantera Negra</h2>
+                        <div class="year">2018</div>
+                    </div>
+                    <div class="film-content">
+                        <p class="synopsis">
+                            Pantera Negra (2018), dirigido por Ryan Coogler, conta a história de T’Challa, príncipe de Wakanda, uma nação africana fictícia extremamente avançada tecnologicamente. Após a morte de seu pai, T’Challa retorna para assumir o trono e se tornar o novo rei e o Pantera Negra, responsável por proteger seu povo.
+                        </p>
+                        <p class="synopsis">
+                            Porém, sua liderança é ameaçada pelo surgimento de Erik Killmonger, um homem com uma ligação com Wakanda e marcado por experiências de desigualdade e racismo. Ele acredita que os recursos e a tecnologia de Wakanda deveriam ser utilizados para ajudar populações negras que sofrem com injustiças ao redor do mundo. O conflito entre os dois apresenta diferentes formas de enfrentar a desigualdade e as consequências do abandono.
+                        </p>
+                        <p class="synopsis">
+                            Além da ação e da aventura, o filme aborda temas como representatividade negra, racismo, identidade cultural, desigualdade social, responsabilidade coletiva e valorização da cultura africana. Ao longo da história, T’Challa percebe que Wakanda não deve permanecer isolada e decide utilizar seus recursos para criar conexões e ajudar outras comunidades. Assim, Pantera Negra mostra que a verdadeira força não está apenas no poder, mas também na cooperação, na empatia e na responsabilidade com o próximo.
+                        </p>
+                        <div class="ficha-tecnica">
+                            <h3>Ficha Técnica</h3>
+                            <div class="ficha-grid">
+                                <div class="ficha-item">
+                                    <strong>Diretor</strong>
+                                    <span>Ryan Coogler</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Elenco</strong>
+                                    <span>Chadwick Boseman, Michael B. Jordan, Lupita Nyong'o, Danai Gurira, Letitia Wright</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>País de origem</strong>
+                                    <span>Estados Unidos da América</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Ano de produção</strong>
+                                    <span>2018</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Classificação</strong>
+                                    <span>12 anos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Série: Todo Mundo Odeia o Chris -->
+                <article id="chris" class="film-card">
+                    <div class="film-header">
+                        <h2>Todo Mundo Odeia o Chris</h2>
+                        <div class="year">2005-2009</div>
+                    </div>
+                    <div class="film-content">
+                        <p class="synopsis">
+                            Todo Mundo Odeia o Chris é uma série de comédia inspirada nas experiências da adolescência do comediante Chris Rock. Ambientada no Brooklyn, em Nova York, durante a década de 1980, a narrativa acompanha Chris, um adolescente negro que vive com sua família em uma realidade marcada por dificuldades financeiras, desigualdade social e diferentes formas de discriminação.
+                        </p>
+                        <p class="synopsis">
+                            Ao frequentar uma escola predominantemente branca, Chris se depara com situações de preconceito racial e exclusão. Além de ser constantemente perseguido e intimidado por um colega branco, que o transforma em alvo de provocações e humilhações, Chris também enfrenta atitudes discriminatórias por parte de uma professora branca. Em determinadas situações, suas capacidades são colocadas em dúvida e ele recebe um tratamento diferente daquele destinado aos demais alunos, evidenciando como o preconceito pode estar presente até mesmo em instituições responsáveis pela educação.
+                        </p>
+                        <p class="synopsis">
+                            A série também evidencia a desigualdade socioeconômica, apresentando o contraste entre a realidade financeira da família de Chris e a de outros estudantes que possuem melhores condições e maiores oportunidades. As dificuldades enfrentadas por sua família, relacionadas ao trabalho, ao dinheiro e à busca por melhores condições de vida, fazem parte da construção da narrativa.
+                        </p>
+                        <p class="synopsis">
+                            Por meio do humor e de situações do cotidiano, a obra aborda racismo estrutural, preconceito racial, discriminação, bullying, desigualdade social e econômica, estereótipos raciais e desigualdade de oportunidades. Assim, a série ultrapassa o caráter humorístico e possibilita uma reflexão sobre as relações raciais e as desigualdades que fazem parte da sociedade.
+                        </p>
+                        <div class="ficha-tecnica">
+                            <h3>Ficha Técnica</h3>
+                            <div class="ficha-grid">
+                                <div class="ficha-item">
+                                    <strong>Criadores</strong>
+                                    <span>Chris Rock e Ali LeRoi</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Elenco principal</strong>
+                                    <span>Tyler James Williams, Terry Crews, Tichina Arnold, Tequan Richmond, Imani Hakim, Vincent Martella</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Narração</strong>
+                                    <span>Chris Rock</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>País de origem</strong>
+                                    <span>Estados Unidos da América</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Anos</strong>
+                                    <span>2005-2009</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Classificação</strong>
+                                    <span>10 anos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Filme: Estrelas Além do Tempo -->
+                <article id="estrelas" class="film-card">
+                    <div class="film-header">
+                        <h2>Estrelas Além do Tempo (Hidden Figures)</h2>
+                        <div class="year">2016</div>
+                    </div>
+                    <div class="film-content">
+                        <p class="synopsis">
+                            Baseado em fatos reais, o filme conta a história de três matemáticas afro-americanas que trabalharam na NASA durante a corrida espacial dos anos 1960: Katherine Johnson, Dorothy Vaughan e Mary Jackson. Apesar do talento excepcional, elas enfrentaram discriminação racial e de gênero em um ambiente segregado.
+                        </p>
+                        <p class="synopsis">
+                            Enquanto os Estados Unidos competiam com a União Soviética para enviar o primeiro homem ao espaço, essas mulheres realizaram cálculos essenciais que ajudaram a colocar astronautas em órbita. A obra destaca como elas superaram barreiras, provaram sua competência e contribuíram de forma decisiva para a história da exploração espacial, promovendo reflexão sobre representatividade, igualdade de oportunidades e o valor da diversidade.
+                        </p>
+                        <div class="ficha-tecnica">
+                            <h3>Ficha Técnica</h3>
+                            <div class="ficha-grid">
+                                <div class="ficha-item">
+                                    <strong>Diretor</strong>
+                                    <span>Theodore Melfi</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Elenco</strong>
+                                    <span>Taraji P. Henson, Octavia Spencer, Janelle Monáe, Kevin Costner</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>País de origem</strong>
+                                    <span>Estados Unidos da América</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Ano de produção</strong>
+                                    <span>2016</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Classificação</strong>
+                                    <span>10 anos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Filme: Selma -->
+                <article id="selma" class="film-card">
+                    <div class="film-header">
+                        <h2>Selma: Uma Luta pela Igualdade</h2>
+                        <div class="year">2014</div>
+                    </div>
+                    <div class="film-content">
+                        <p class="synopsis">
+                            O filme retrata a campanha de Martin Luther King Jr. e outros líderes do movimento pelos direitos civis para garantir o direito ao voto aos afro-americanos no Alabama, em 1965. A narrativa foca nas marchas de Selma a Montgomery, um dos episódios mais importantes da luta contra a segregação racial nos Estados Unidos.
+                        </p>
+                        <p class="synopsis">
+                            Dirigido por Ava DuVernay, o longa mostra os desafios, a coragem e as estratégias não violentas utilizadas para enfrentar a opressão e conquistar direitos fundamentais. A obra convida à reflexão sobre a importância da luta coletiva, da justiça e da persistência na busca por igualdade racial.
+                        </p>
+                        <div class="ficha-tecnica">
+                            <h3>Ficha Técnica</h3>
+                            <div class="ficha-grid">
+                                <div class="ficha-item">
+                                    <strong>Diretora</strong>
+                                    <span>Ava DuVernay</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Elenco</strong>
+                                    <span>David Oyelowo, Carmen Ejogo, Tom Wilkinson, Oprah Winfrey</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>País de origem</strong>
+                                    <span>Estados Unidos da América</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Ano de produção</strong>
+                                    <span>2014</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Classificação</strong>
+                                    <span>14 anos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Filme brasileiro: Medida Provisória -->
+                <article id="medida" class="film-card">
+                    <div class="film-header">
+                        <h2>Medida Provisória</h2>
+                        <div class="year">2022</div>
+                    </div>
+                    <div class="film-content">
+                        <p class="synopsis">
+                            Em um futuro distópico, o governo brasileiro decreta uma medida provisória que, sob o pretexto de reparação histórica pela escravidão, obriga os cidadãos negros a migrarem para a África. A história acompanha o casal formado pela médica Capitu (Taís Araújo) e o advogado Antônio (Alfred Enoch), além do primo jornalista André (Seu Jorge), que precisam lidar com as consequências dessa decisão arbitrária.
+                        </p>
+                        <p class="synopsis">
+                            Dirigido por Lázaro Ramos, o filme mistura drama e crítica social para refletir sobre racismo estrutural, pertencimento, identidade e as contradições das políticas de reparação. A obra provoca o debate sobre o que significa ser negro no Brasil contemporâneo e as formas de resistência diante de injustiças institucionais.
+                        </p>
+                        <div class="ficha-tecnica">
+                            <h3>Ficha Técnica</h3>
+                            <div class="ficha-grid">
+                                <div class="ficha-item">
+                                    <strong>Diretor</strong>
+                                    <span>Lázaro Ramos</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Elenco</strong>
+                                    <span>Alfred Enoch, Taís Araújo, Seu Jorge, Adriana Esteves</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>País de origem</strong>
+                                    <span>Brasil</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Ano de produção</strong>
+                                    <span>2022</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Classificação</strong>
+                                    <span>14 anos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Filme brasileiro: Marte Um -->
+                <article id="marte" class="film-card">
+                    <div class="film-header">
+                        <h2>Marte Um</h2>
+                        <div class="year">2022</div>
+                    </div>
+                    <div class="film-content">
+                        <p class="synopsis">
+                            Marte Um acompanha o cotidiano de uma família negra de classe média baixa na periferia de uma grande cidade brasileira. Após a eleição de um presidente de extrema-direita, os Martins enfrentam tensões políticas e sociais enquanto tentam realizar seus sonhos pessoais.
+                        </p>
+                        <p class="synopsis">
+                            O filme retrata as aspirações do jovem Deivinho, que sonha em estudar astrofísica e colonizar Marte, enquanto sua família lida com questões de identidade, preconceito e a busca por um futuro melhor. A obra oferece um olhar sensível e realista sobre a vida de famílias negras no Brasil contemporâneo, valorizando a resiliência e a esperança.
+                        </p>
+                        <div class="ficha-tecnica">
+                            <h3>Ficha Técnica</h3>
+                            <div class="ficha-grid">
+                                <div class="ficha-item">
+                                    <strong>Diretor</strong>
+                                    <span>Gabriel Martins</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Elenco</strong>
+                                    <span>Cícero Lucas, Carlos Francisco, Camilla Damião, Rejane Faria</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>País de origem</strong>
+                                    <span>Brasil</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Ano de produção</strong>
+                                    <span>2022</span>
+                                </div>
+                                <div class="ficha-item">
+                                    <strong>Classificação</strong>
+                                    <span>16 anos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Celebrando a <strong class="date-highlight">Consciência Negra</strong> — 20 de novembro</p>
+        <p>Um site para refletir, aprender e valorizar a cultura e a história negra através do cinema.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Criado com carinho para promover representatividade e consciência.</p>
+    </footer>
+</body>
+</html>
